@@ -33,7 +33,9 @@ function Dashboard() {
 
   return (
     <div>
-      
+      <nav>
+        <Link to="/">Sign Out</Link>
+      </nav>
       <h1>Dashboard</h1>
       <Link to="/bookings">
         <button>My Bookings</button>
