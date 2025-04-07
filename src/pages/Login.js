@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../supabase';
 
 function Login() {
   const navigate = useNavigate();
+  const { setUser } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -70,7 +72,9 @@ function Login() {
     }
 
     alert("Logged in successfully!");
-    navigate("/dashboard", { state: { userId: user.id } });
+    // Update the global AuthContext with the latest user object
+    setUser(user);
+    navigate("/dashboard");
   };
 
   return (

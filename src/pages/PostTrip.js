@@ -27,6 +27,12 @@ function PostTrip() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Validate that the departure time is in the future
+    if (tripData.departure_time.getTime() <= new Date().getTime()) {
+        alert("Departure time must be in the future.");
+        return;
+      }
+
     if (!user) {
       alert("You must be logged in to post a trip.");
       return;
