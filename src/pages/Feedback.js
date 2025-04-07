@@ -8,16 +8,15 @@ function Feedback() {
   const navigate = useNavigate();
 
   const [subject, setSubject] = useState('');
-  const [message, setMessage] = useState('');
+  const [feedback, setFeedback] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Insert feedback into the "Feedback" table (ensure you have this table)
+    // Insert feedback into the "Feedback" table using correct column names.
     const { error } = await supabase.from('Feedback').insert([
       {
-        user_id: user?.id || null,
-        message,
+        feedback,
         subject,
       },
     ]);
@@ -47,10 +46,10 @@ function Feedback() {
             />
           </div>
           <div>
-            <label className="block text-gray-700 font-bold mb-2">Message</label>
+            <label className="block text-gray-700 font-bold mb-2">Feedback</label>
             <textarea
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
+              value={feedback}
+              onChange={(e) => setFeedback(e.target.value)}
               required
               rows="5"
               className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-300"

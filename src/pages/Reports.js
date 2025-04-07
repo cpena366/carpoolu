@@ -7,18 +7,17 @@ function Reports() {
   const { user } = useAuth();
   const navigate = useNavigate();
 
-  const [bugTitle, setBugTitle] = useState('');
-  const [bugDescription, setBugDescription] = useState('');
+  const [title, setTitle] = useState('');
+  const [report, setReport] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Insert bug report into the "Reports" table (ensure you have this table)
+    // Insert a new report into the Reports table with columns: title and report.
     const { error } = await supabase.from('Reports').insert([
       {
-        user_id: user?.id || null,
-        bug_description: bugDescription,
-        bug_title: bugTitle,
+        report,
+        title,
       },
     ]);
 
@@ -37,20 +36,20 @@ function Reports() {
         <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">Report a Bug</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-gray-700 font-bold mb-2">Bug Title</label>
+            <label className="block text-gray-700 font-bold mb-2">Title</label>
             <input
               type="text"
-              value={bugTitle}
-              onChange={(e) => setBugTitle(e.target.value)}
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
               required
               className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-300"
             />
           </div>
           <div>
-            <label className="block text-gray-700 font-bold mb-2">Bug Description</label>
+            <label className="block text-gray-700 font-bold mb-2">Report</label>
             <textarea
-              value={bugDescription}
-              onChange={(e) => setBugDescription(e.target.value)}
+              value={report}
+              onChange={(e) => setReport(e.target.value)}
               required
               rows="5"
               className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-300"
