@@ -59,20 +59,39 @@ const hasDeparted = departureTime <= new Date();
   };
 
   return (
-        <div className="trip-card" style={{ border: '1px solid #ccc', padding: '1rem', margin: '1rem 0' }}>
-          <h3>Trip from {trip.origin} to {trip.destination}</h3>
-          <p><strong>Departure:</strong> {formattedDepartureTime}</p>
-          <p><strong>Seats Available:</strong> {seatsLeft}</p>
-          <p><strong>Cost:</strong> Free</p>
-          {trip.trip_description && (
-            <p><strong>Description:</strong> {trip.trip_description}</p>
-          )}
-          <p><strong>Posted on:</strong> {formattedCreatedAt}</p>
-          <button onClick={handleJoinTrip} disabled={isJoined || hasDeparted}>
-            {hasDeparted ? 'Departed' : (isJoined ? 'Joined' : 'Join Trip')}
-          </button>
-        </div>
-      );
+    <div className="bg-white shadow rounded border border-gray-300 p-4 my-4">
+      <h3 className="text-2xl font-bold mb-0.5">
+        Going to: {trip.destination}
+      </h3>
+      <p className="text-lg text-gray-700 mb-3">
+        Meeting at: {trip.origin}
+      </p>
+      <p className="text-red-900 mb-0.5">
+        <strong>Leaving At:</strong> {formattedDepartureTime}
+      </p>
+      {trip.trip_description && (
+        <p className="text-gray-700 mb-0.5">
+          <strong>Description:</strong> {trip.trip_description}
+        </p>
+      )}
+      <p className="text-gray-700 mb-0.5">
+        <strong>Seats Available:</strong> {seatsLeft}
+      </p>
+      <p className="text-gray-700 mb-0.5">
+        <strong>Cost:</strong> FREE
+      </p>
+      <p className="text-gray-500 text-xs mb-2">
+        <strong>Posted on:</strong> {formattedCreatedAt}
+      </p>
+      <button
+        onClick={handleJoinTrip}
+        disabled={isJoined || hasDeparted}
+        className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        {hasDeparted ? 'Departed' : (isJoined ? 'Joined' : 'Join Trip')}
+      </button>
+    </div>
+  );
 }
 
 export default TripCard;

@@ -71,24 +71,26 @@ const availableTrips = tripsData.filter((trip) => {
   }, [userId]);
 
   return (
-    <div>
-
-      {/*<h1>Dashboard</h1>
-
-      <Link to="/bookings">
-        <button>My Bookings</button>
-      </Link>
-
-      <Link to="/post-trip">
-        <button>Post a Trip</button>
-      </Link>*/}
-
-      <h2>Available Trips</h2>
-      {trips.length > 0 ? (
-        trips.map((trip) => <TripCard key={trip.id} trip={trip} userId={userId} joinedTripIds={joinedTripIds} />)
-      ) : (
-        <p>No trips available.</p>
-      )}
+    <div className="min-h-screen bg-gray-50 p-4">
+      <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
+        Available Trips
+      </h2>
+      <div className="max-w-5xl mx-auto grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {trips.length > 0 ? (
+          trips.map((trip) => (
+            <TripCard
+              key={trip.id}
+              trip={trip}
+              userId={userId}
+              joinedTripIds={joinedTripIds}
+            />
+          ))
+        ) : (
+          <p className="text-center text-gray-600 col-span-full">
+            No active trips.
+          </p>
+        )}
+      </div>
     </div>
   );
 }

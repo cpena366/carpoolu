@@ -58,16 +58,25 @@ function UpdateCarInfo() {
     }
   };
 
-  if (loading) return <p>Loading car information...</p>;
+  if (loading) return <p className="text-center text-gray-600">Loading car information...</p>;
 
   return (
-    <div style={{ padding: "1rem" }}>
-      <h1>Update Car Information</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>
-            Car Color:
-            <select value={carColor} onChange={(e) => setCarColor(e.target.value)} required>
+    <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-6">
+      <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 w-full max-w-md">
+        <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">
+          Update Car Information
+        </h1>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label className="block text-gray-700 font-bold mb-2">
+              Car Color:
+            </label>
+            <select
+              value={carColor}
+              onChange={(e) => setCarColor(e.target.value)}
+              required
+              className="block w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-300"
+            >
               <option value="">Select Color</option>
               <option value="White">White</option>
               <option value="Black">Black</option>
@@ -81,12 +90,17 @@ function UpdateCarInfo() {
               <option value="Beige">Beige</option>
               <option value="Other">Other</option>
             </select>
-          </label>
-        </div>
-        <div>
-          <label>
-            Car Brand:
-            <select value={carBrand} onChange={(e) => setCarBrand(e.target.value)} required>
+          </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 font-bold mb-2">
+              Car Brand:
+            </label>
+            <select
+              value={carBrand}
+              onChange={(e) => setCarBrand(e.target.value)}
+              required
+              className="block w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-300"
+            >
               <option value="">Select Brand</option>
               <option value="Toyota">Toyota</option>
               <option value="Honda">Honda</option>
@@ -102,12 +116,17 @@ function UpdateCarInfo() {
               <option value="Mazda">Mazda</option>
               <option value="Other">Other</option>
             </select>
-          </label>
-        </div>
-        <div>
-          <label>
-            Car Make:
-            <select value={carMake} onChange={(e) => setCarMake(e.target.value)} required>
+          </div>
+          <div className="mb-6">
+            <label className="block text-gray-700 font-bold mb-2">
+              Car Make:
+            </label>
+            <select
+              value={carMake}
+              onChange={(e) => setCarMake(e.target.value)}
+              required
+              className="block w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-300"
+            >
               <option value="">Select Make</option>
               <option value="Car">Car</option>
               <option value="Truck">Truck</option>
@@ -120,11 +139,15 @@ function UpdateCarInfo() {
               <option value="Minivan">Minivan</option>
               <option value="Other">Other</option>
             </select>
-          </label>
-        </div>
-        <br />
-        <button type="submit">Update Car Information</button>
-      </form>
+          </div>
+          <button
+            type="submit"
+            className="w-full py-2 bg-blue-500 text-white font-bold rounded hover:bg-blue-600 focus:outline-none focus:shadow-outline"
+          >
+            Update Car Information
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

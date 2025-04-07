@@ -61,16 +61,19 @@ function PostTrip() {
   };
 
   return (
-    <div>
-      <h1>Post a Trip</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="origin">Leaving From:</label>
-          <select 
-            name="origin" 
-            value={tripData.origin} 
-            onChange={handleChange} 
+    <div className="min-h-screen bg-gray-50 flex flex-col items-center py-8">
+      <h1 className="text-3xl font-bold text-gray-800 mb-6">Post a Trip</h1>
+      <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-lg">
+        <div className="mb-4">
+          <label htmlFor="origin" className="block text-gray-700 font-bold mb-2">
+            Leaving From:
+          </label>
+          <select
+            name="origin"
+            value={tripData.origin}
+            onChange={handleChange}
             required
+            className="block w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-300"
           >
             <option value="">Select Origin</option>
             <option value="Lot G (Lower Lot - Hamill Center/Security)">Lot G (Lower Lot - Hamill Center/Security)</option>
@@ -84,31 +87,38 @@ function PostTrip() {
           </select>
         </div>
 
-        <div>
-          <label htmlFor="destination">Going To:</label>
-          <textarea 
-            type="text" 
-            name="destination" 
-            value={tripData.destination} 
-            onChange={handleChange} 
-            placeholder="e.g. Walmart, Target, Social Security Office" 
-            required 
+        <div className="mb-4">
+          <label htmlFor="destination" className="block text-gray-700 font-bold mb-2">
+            Going To:
+          </label>
+          <textarea
+            name="destination"
+            value={tripData.destination}
+            onChange={handleChange}
+            placeholder="e.g. Walmart, Target, Social Security Office"
+            required
+            className="block w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-300"
           />
         </div>
 
-        <div>
-          <label htmlFor="trip_description">Trip Description:</label>
-          <textarea 
-            name="trip_description" 
-            value={tripData.trip_description} 
-            onChange={handleChange} 
-            placeholder="Enter any trip details that might be important." 
+        <div className="mb-4">
+          <label htmlFor="trip_description" className="block text-gray-700 font-bold mb-2">
+            Trip Description:
+          </label>
+          <textarea
+            name="trip_description"
+            value={tripData.trip_description}
+            onChange={handleChange}
+            placeholder="Enter any trip details that might be important."
             required
+            className="block w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-300"
           />
         </div>
-        
-        <div>
-          <label htmlFor="departure_time">Departure Time:</label>
+
+        <div className="mb-4">
+          <label htmlFor="departure_time" className="block text-gray-700 font-bold mb-2">
+            Departure Time:
+          </label>
           <DatePicker
             selected={tripData.departure_time}
             onChange={handleDateChange}
@@ -117,23 +127,34 @@ function PostTrip() {
             timeIntervals={15}
             dateFormat="EEEE, MMMM d 'at' hh:mm aa"
             required
+            className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-300"
           />
         </div>
-        
-        <div>
-          <label htmlFor="seats_available">Seats Available:</label>
-          <input 
-            type="number" 
-            name="seats_available" 
-            value={tripData.seats_available} 
-            onChange={handleChange} 
+
+        <div className="mb-6">
+          <label htmlFor="seats_available" className="block text-gray-700 font-bold mb-2">
+            Seats Available:
+          </label>
+          <input
+            type="number"
+            name="seats_available"
+            value={tripData.seats_available}
+            onChange={handleChange}
             required
             min="1"
             max="11"
+            className="block w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-300"
           />
         </div>
-        
-        <button type="submit">Post Trip</button>
+
+        <div className="flex items-center justify-between">
+          <button
+            type="submit"
+            className="w-full py-2 bg-blue-500 text-white font-bold rounded hover:bg-blue-600 focus:outline-none focus:shadow-outline"
+          >
+            Post Trip
+          </button>
+        </div>
       </form>
     </div>
   );
