@@ -78,18 +78,40 @@ function Login() {
   };
 
   return (
-    <div>
-      <button onClick={() => navigate("/")} style={{ marginBottom: "1rem" }}>
-        &larr; Back
-      </button>
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-        <button type="submit">Login</button>
-      </form>
-    </div>
-  );
+        <div className="relative min-h-screen bg-gray-100 flex flex-col items-center justify-center">
+          <button
+            onClick={() => navigate("/")}
+            className="absolute top-8 left-8 font-bold text-xl transform transition-transform duration-200 hover:scale-110"
+          >
+            &larr; Back
+          </button>
+          <h2 className="text-2xl font-semibold mb-6">Login</h2>
+          <form onSubmit={handleLogin} className="flex flex-col items-center space-y-4 w-80">
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="w-full p-2 border border-gray-300 rounded"
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              className="w-full p-2 border border-gray-300 rounded"
+            />
+            <button
+              type="submit"
+              className="w-full py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            >
+              Login
+            </button>
+          </form>
+        </div>
+      );
 }
 
 export default Login;
