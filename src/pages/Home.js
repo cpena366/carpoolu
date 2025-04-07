@@ -5,7 +5,11 @@ import { Link } from 'react-router-dom';
 function Home() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
-      <img src="/path/to/your/logo.png" alt="App Logo" className="w-32 h-32 mb-4" />
+      <img
+  src="/logo192.png"
+  alt="App Logo"
+  className="w-32 h-32 mb-4"
+/>
       <h1 className="text-3xl md:text-4xl font-bold">CarpoolU</h1>
       <p className="text-lg text-gray-700">Drive. Ride. Connect. Campus Made Simple.
       </p>
