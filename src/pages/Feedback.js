@@ -33,7 +33,7 @@ function Feedback() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-6">
       <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 w-full max-w-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">Feedback</h1>
+        <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">Feedback/Report A Bug</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-gray-700 font-bold mb-2">Subject</label>
@@ -46,7 +46,7 @@ function Feedback() {
             />
           </div>
           <div>
-            <label className="block text-gray-700 font-bold mb-2">Feedback</label>
+            <label className="block text-gray-700 font-bold mb-2">Feedback/Bug:</label>
             <textarea
               value={feedback}
               onChange={(e) => setFeedback(e.target.value)}
@@ -57,9 +57,9 @@ function Feedback() {
           </div>
           <button
             type="submit"
-            className="w-full py-2 bg-blue-500 text-white font-bold rounded hover:bg-blue-600 focus:outline-none focus:shadow-outline"
+            className="w-full py-2 bg-gray-500 text-white font-bold rounded hover:bg-blue-600 focus:outline-none focus:shadow-outline"
           >
-            Submit Feedback
+            Submit Feedback/Bug Report
           </button>
         </form>
       </div>

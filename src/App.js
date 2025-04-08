@@ -11,7 +11,6 @@ import PostTrip from './pages/PostTrip';
 import UpdateCarInfo from './pages/UpdateCarInfo';
 import DriverRegistration from './pages/DriverRegistration';
 import Feedback from './pages/Feedback';
-import Reports from './pages/Reports';
 import Navbar from './components/Navbar';
 import FooterNav from './components/FooterNav';
 import { AuthProvider } from './contexts/AuthContext';
@@ -33,7 +32,6 @@ function App() {
           <Route path="/bookings" element={<Bookings />} />
           <Route path="/post-trip" element={<PostTrip />} />
           <Route path="/feedback" element={<Feedback />} />
-          <Route path="/reports" element={<Reports />} />
         </Routes>
       </AuthProvider>
     </Router>
