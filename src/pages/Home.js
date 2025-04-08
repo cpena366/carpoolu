@@ -8,16 +8,16 @@ function Home() {
       <img
   src="/logo192.png"
   alt="App Logo"
-  className="w-32 h-32 mb-4"
+  className="w-64 h-64 mb-4"
 />
-      <h1 className="text-3xl md:text-4xl font-bold">CarpoolU</h1>
+      <h1 className="text-3xl md:text-4xl font-bold mb-3">CarpoolU</h1>
       <p className="text-lg text-gray-700">Drive. Ride. Connect. Campus Made Simple.
       </p>
       <div className="mt-4">
-        <a href="/signup" className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-blue-600">
+        <a href="/signup" className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600">
           Sign Up
         </a>
-        <a href="/login" className="ml-4 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700">
+        <a href="/login" className="ml-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">
           Login
         </a>
       </div>
