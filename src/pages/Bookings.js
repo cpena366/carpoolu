@@ -94,7 +94,7 @@ function MyBookings() {
                 <strong>Trip Description:</strong> {booking.Trips.trip_description}
               </p>
             )}
-            <p className="text-gray-700 mb-1">
+            <p className="text-red-900 mb-1">
               <strong>Leaving At:</strong> {formatDateTime(booking.Trips?.departure_time)}
             </p>
             <p className="text-gray-700 mb-1">

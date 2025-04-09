@@ -38,7 +38,7 @@ function Signup() {
     if (error) {
       alert(error.message);
     } else {
-      alert("Signup successful! Check your email to confirm your account, then log in.");
+      alert("Signup successful! Check your email to confirm your account, then proceed to log in. (CHECK SPAM/JUNK)");
     }
 
     console.log('Signup response:', data, error);
@@ -66,7 +66,7 @@ function Signup() {
             />
             <input
               type="email"
-              placeholder="Email"
+              placeholder="Email (@oru.edu)"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
